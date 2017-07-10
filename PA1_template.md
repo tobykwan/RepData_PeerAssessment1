@@ -39,7 +39,7 @@ actByDay <- ddply(actData, "date", summarize, total = sum(steps, na.rm = TRUE))
 hist(actByDay$total, main = "Total # of steps taken each day", xlab = "Total # of steps")
 ```
 
-![](PA1_template_files/figure-html/dayTotal-1.png)<!-- -->
+![](PA1_template_files/figure-html/Part2a-1.png)<!-- -->
 And their mean/median of the
 
 ```r
@@ -138,6 +138,6 @@ xyplot(avgSteps ~ interval | daycat, data = actByInterval2, layout=c(1,2), type 
        xlab = "Interval", ylab = "Number of steps")
 ```
 
-![](PA1_template_files/figure-html/Part 5-1.png)<!-- -->
+![](PA1_template_files/figure-html/Part5-1.png)<!-- -->
 
 There is an observable difference in the activity pattern between weekdays and weekends.  In particular, there is a decrease in activity level on weekends.

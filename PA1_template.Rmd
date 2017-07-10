@@ -27,12 +27,12 @@ summary(actData)
 
 ## Part 2 - What is mean total number of steps taken per day?
 Here, the total number of steps performed per day are calculated.
-```{r dayTotal}
+```{r Part2a}
 actByDay <- ddply(actData, "date", summarize, total = sum(steps, na.rm = TRUE))
 hist(actByDay$total, main = "Total # of steps taken each day", xlab = "Total # of steps")
 ```
 And their mean/median of the
-```{r Part2}
+```{r Part2b}
 mean(actByDay$total)
 median(actByDay$total)
 ```
@@ -76,7 +76,7 @@ With the NA values replaced by the interval averages, the total number of steps 
 
 ## Part 5 - Are there differences in activity patterns between weekdays and weekends?
 The factor variable 'daycat' is created based on the 'weekday' values.  The interval averages are then recalculated.
-```{r Part 5}
+```{r Part5}
 actData2$daycat <- factor(ifelse((weekdays(actData2$date) == 'Sunday' | weekdays(actData2$date) == 'Saturday'),
                                  "weekend", "weekday"))
 actByInterval2 <- ddply(actData2, .(interval, daycat), summarize, avgSteps = mean(steps, na.rm = TRUE))
